@@ -3,4 +3,3 @@ pandas
 sklearn
 matplotlib
 gunicorn
-rtree
