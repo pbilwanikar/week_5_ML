@@ -2,6 +2,7 @@ import numpy as np
 from flask import Flask, request,render_template
 import pickle
 import pandas as pd
+import math
 
 app=Flask(__name__)
 model=pickle.load(open('grade_model.pkl', 'rb'))
@@ -29,7 +30,7 @@ def predict():
     df=pd.DataFrame(final_features,columns=features_name)
     prediction=model.predict(df)
 
-    output=ceil(prediction[0])
+    output=math.ceil(prediction[0])
 
     return render_template('index.html',prediction_text='The grade of the student is {}'.format(output))
 
